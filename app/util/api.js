@@ -3,7 +3,7 @@ var axios = require('axios');
 var _baseURL = 'http://api.openweathermap.org/data/2.5/';
 var _baseLocationURL = 'https://maps.googleapis.com/maps/api/geocode/';
 var _baseWeatherUrl = 'https://api.darksky.net/forecast/';
-var _proxyURL = 'http://localhost:8080/proxy/'
+var _proxyURL = 'https://crossorigin.me/'
 
 var _APIKEY = '70d19fec49463ea96d83cf22ddbf41d5';
 var _WEATHERAPIKEY = 'd850e3dcd69c58f6b716b3d988ac7b92';
