@@ -1,0 +1,46 @@
+
+.search-container {
+  display: flex;
+  justify-content:space-between;
+  align-items: center;
+  flex-direction: column;
+  max-width: 320px;
+  max-height: 150px;
+  margin: 10px auto;
+  background-color: rgb(76, 120, 180);
+  justify-content: center;
+}
+
+.forecast-heading-container > * {
+  text-align: center;
+}
+
+.forecast-details-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  max-width: 320px;
+  margin: 10px auto;
+  justify-content: center;
+}
+
+.daily-details-container {
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+  max-width:320px;
+  margin-right: 10px;
+  justify-content: center;
+}
+
+.daily-details-container > p {
+  font-weight:lighter;
+  justify-content: flex-start;
+  display: inline-block;
+}
+
+.daily-details-container > p > span {
+  font-weight: 700;
+}
+html {background-color: white}

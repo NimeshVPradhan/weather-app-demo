@@ -1,0 +1,46 @@
+
+.search-container {
+  display: flex;
+  justify-content:space-between;
+  align-items: center;
+  flex-direction: row;
+  max-width: 1800px;
+  max-height: 100px;
+  margin: 50px auto;
+  background-color: rgb(76, 120, 180);
+  justify-content: center;
+}
+
+.forecast-heading-container > * {
+  text-align: center;
+}
+
+.forecast-details-container {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  align-items: stretch;
+  max-width: 1200px;
+  margin: 50px auto;
+  justify-content: center;
+}
+
+.daily-details-container {
+  display:flex;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 100%;
+  max-width:300px;
+  margin-right: 50px;
+}
+
+.daily-details-container > p {
+  font-weight:lighter;
+  justify-content: flex-start;
+  display: inline-block;
+
+}
+
+.daily-details-container > p > span {
+  font-weight: bold;
+}
