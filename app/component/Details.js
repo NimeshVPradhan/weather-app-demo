@@ -1,21 +1,25 @@
 var React = require('react');
 var api = require('../util/api');
+var helper = require('../util/helpers');
+var Well = require('react-bootstrap/lib/Well');
 
 class Details extends React.Component{
   constructor(props){
     super(props);
     this.state = {
-      forecast: this.props.state
+      daily: this.props.state
     }
   }
   render(){
-    const {forecast} = this.state;
-    console.log('props in details:\n'+JSON.stringify(this.props));
-    console.log('Forecastin details:\n'+JSON.stringify(forecast));
+    const {daily} = this.state;
     return (
-      <div className='result-container'>
-          Details:{JSON.stringify(forecast)}
-      </div>
+      <Well className='daily-details-container'  key={daily.time} bsSize='large'>
+      <p><span>{helper.getDate(daily.time)}</span></p>
+      <p><span>Summary:</span> {daily.summary}</p>
+      <p><span>Max Temp:</span> {helper.getTemp(0,daily.temperatureMax)}</p>
+      <p><span>Min Temp:</span> {helper.getTemp(0,daily.temperatureMin)}</p>
+      <p><span>Humidity:</span> {daily.humidity}</p>
+      </Well>
     )
   }
 }

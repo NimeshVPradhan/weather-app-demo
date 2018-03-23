@@ -28,7 +28,7 @@ function getDate(unix_timestamp){
 }
 
 function getTemp(value,temp){
-  return value===0?temp+' F':((temp - 31)/1.8).toFixed(2)+' °C';
+  return value===0?temp+'°F':((temp - 31)/1.8).toFixed(2)+'°C';
 }
 
 module.exports ={

@@ -3,6 +3,7 @@ var api = require('../util/api');
 var PropTypes = require('prop-types');
 var ReactRouter = require('react-router-dom');
 var helper = require('../util/helpers');
+var Details = require('./Details');
 
 var ControlLabel = require('react-bootstrap/lib/ControlLabel');
 var Table = require('react-bootstrap/lib/Table');
@@ -31,13 +32,14 @@ class Forecast extends React.Component{
 
   getCityAdress(cityDetails){
     //console.log(JSON.stringify(cityDetails));
-    return cityDetails[0].types[0]==='postal_code'?
+    return cityDetails[0].types[0]==='postal_code'||'street_number'?
       cityDetails[1].long_name+','
             +cityDetails[cityDetails.length-2].short_name
       :
       cityDetails[0].long_name+','
             +cityDetails[cityDetails.length-2].short_name
   }
+
   getWeather(props){
     this.setState(function(){
       return{
@@ -51,11 +53,11 @@ class Forecast extends React.Component{
         //console.log(JSON.stringify(response.data.results[0].address_components[response.data.results[0].address_components.length-1].short_name));
         response.status === 200?
         api.getForecast(response.data.results[0].geometry.location.lat,response.data.results[0].geometry.location.lng)
-          .then(function(res){
+          .then(function(forecast){
             this.setState(function(){
               return{
                 loading: false,
-                forecast:res,
+                forecast:forecast.data,
                 err: '',
                 city: this.getCityAdress(response.data.results[0].address_components)
               }
@@ -78,7 +80,7 @@ class Forecast extends React.Component{
     var key = 'name';
     //console.log('state:'+JSON.stringify(dailyForecast));
     return loading === true
-    ?<h1 className='forecast-loading'> loading</h1>
+    ?<div className='forecast-loading'></div>
     : !err?
     <div className='forecast-container'>
       <div className='forecast-heading-container'>
@@ -90,13 +92,7 @@ class Forecast extends React.Component{
         <div className='forecast-details-container'>
             {dailyForecast.daily.data.map((daily, index)=>
               index<5?
-              <Well className='daily-details-container'  key={daily.time} bsSize='large'>
-                  <p><span>{helper.getDate(daily.time)}</span></p>
-                  <p><span>Summary:</span> {daily.summary}</p>
-                  <p><span>Max Temp:</span> {helper.getTemp(0,daily.temperatureMax)}</p>
-                  <p><span>Min Temp:</span> {helper.getTemp(0,daily.temperatureMin)}</p>
-                  <p><span>Humidity:</span> {daily.humidity}</p>
-            </Well>
+              <Details state={daily} key={daily.time}/>
               :<div key={daily.time}></div>
             )
           }

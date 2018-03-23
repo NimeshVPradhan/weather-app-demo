@@ -17,6 +17,7 @@ var config = {
   },
   devServer: {
     historyApiFallback: true,
+    port: 443,
   },
   plugins: [
     new HtmlWebpackPlugin({
@@ -25,7 +26,7 @@ var config = {
   ]
 };
 
-if (process.env.NODE_ENV === 'production') {
+if (process.env.NODE_ENV === 'dev') {
   config.plugins.push(
     new webpack.DefinePlugin({
       'process.env': {

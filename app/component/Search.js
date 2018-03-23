@@ -44,7 +44,7 @@ class Forecast extends React.Component{
           <ControlLabel>Enter City  or Zipcode  </ControlLabel>
           <FormControl
             type='text'
-            placeholder='Binghamton'
+            placeholder='Binghamton, NY'
             onChange={changeHandler}
             name='city'
           />

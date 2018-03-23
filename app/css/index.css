@@ -6,6 +6,7 @@
   flex-direction: row;
   max-width: 1800px;
   max-height: 100px;
+  border-radius: 10px;
   margin: 50px auto;
   background-color: rgb(76, 120, 180);
   justify-content: center;
@@ -17,13 +18,18 @@
 
 .forecast-details-container {
   display: flex;
-  flex-wrap: wrap;
   flex-direction: row;
+  flex-wrap: wrap;
   align-items: stretch;
   max-width: 1200px;
   margin: 50px auto;
   justify-content: center;
 }
+
+.daily-details-container:hover{
+  transform: scale(1.03);
+}
+
 
 .daily-details-container {
   display:flex;
@@ -38,9 +44,45 @@
   font-weight:lighter;
   justify-content: flex-start;
   display: inline-block;
-
 }
 
 .daily-details-container > p > span {
   font-weight: bold;
+}
+
+.current-weather-container > p > span {
+  justify-content: center;
+  font-weight: bold;
+}
+
+.weather-details-container {
+  position:fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.forecast-loading {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.forecast-loading {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border: 16px solid #f3f3f3; /* Light grey */
+  border-top: 16px solid #3498db; /* Blue */
+  border-radius: 50%;
+  width: 80px;
+  height: 80px;
+  animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
 }

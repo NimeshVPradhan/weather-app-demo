@@ -44,4 +44,22 @@
 .daily-details-container > p > span {
   font-weight: bold;
 }
+.current-weather-container > p > span {
+  justify-content: center;
+  font-weight: bold;
+}
+
+.weather-details-container {
+  position:fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.forecast-loading {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
 html {background-color: white}
